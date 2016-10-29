@@ -1,7 +1,7 @@
 <?php
 $link = mysql_connect('192.168.226.240', 'root', 'summit123');
 function connect(
-  glob $link;
+  global $link;
   if (!$link) {
       die('Could not connect: ' . mysql_error());
   }
@@ -9,7 +9,7 @@ function connect(
 )
 
 function disconnect(
-  glob $link;
+  global $link;
   mysql_close($link);
 )
 ?>

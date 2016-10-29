@@ -23,9 +23,8 @@ class capture:
         #file1 = open(completeName, "w")
 
     def start_capture(self):
-        camera.start_recording(self.video_name + '.' + self.video_format)
         try:
-            camera.start_recording(self.video_name + '.' + self.video_format)
+            self.camera.start_recording(self.video_name + '.' + self.video_format)
         except:
             print("No capture fool!")
 

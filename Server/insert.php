@@ -1,5 +1,5 @@
 <?php
-function insertData (
+function insertData (){
   echo 'Uploading video';
   $sql = 'INSERT INTO root '.
     '(
@@ -25,5 +25,5 @@ function insertData (
    }
 
   echo 'Finished uploading video';
-)
+}
 ?>

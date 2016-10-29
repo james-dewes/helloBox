@@ -1,1 +1,9 @@
-CREATE TABLE `helloBox`.`root` ( `index` INT NOT NULL , `video` TEXT NOT NULL , `audio` TEXT NOT NULL , `text` TEXT NOT NULL , `length` DECIMAL NOT NULL , `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`index`)) ENGINE = InnoDB;
+CREATE TABLE `helloBox`.`root`
+( `index` INT NOT NULL
+,`video` TEXT NOT NULL
+, `audio` TEXT NOT NULL
+, `text` TEXT NOT NULL
+, `length` DECIMAL NOT NULL
+, `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+, PRIMARY KEY (`index`))
+ENGINE = InnoDB;

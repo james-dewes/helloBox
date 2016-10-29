@@ -1,0 +1,39 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+    body{
+
+    }
+    .content {
+      position: relative;
+      //width: 1500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .content video {
+      width: 100%;
+      display: block;
+    }
+    .content:before {
+      content: '';
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5 );
+      background-image: url("overlay.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      border-radius: 10px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+        <video id="player" src="" autoplay loop muted></video>
+    </div>
+  </body>
+</html>

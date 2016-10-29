@@ -20,7 +20,7 @@ while(True){
   $resultData = json_decode($result, true);
   //see if the button has been pressed
   if($resultData['status'] == 'True'){
-    shell_exec('/Documents/helloBox/Kiosk/record.py');
+    shell_exec('../record.py');
     //send the file to the server
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");

@@ -1,7 +1,6 @@
 <?php
 function insertData (
   echo 'Uploading video';
-  //some sql
   $sql = 'INSERT INTO root '.
     '(
     `video`
@@ -25,6 +24,6 @@ function insertData (
       die('Could not enter data: ' . mysql_error());
    }
 
-  echo 'Finished uploading video'
+  echo 'Finished uploading video';
 )
 ?>

@@ -17,8 +17,13 @@ class capture:
         self.video_format = 'h264'
         self.camera = picamera.PiCamera()
         self.save_path = ''
+        save_path = 'C:/example/'
+        name_of_file = raw_input("What is the name of the file: ")
+        completeName = os.path.join(save_path, name_of_file+".txt")
+        file1 = open(completeName, "w")
 
     def start_capture(self):
+        camera.start_recording(self.video_name + '.' + self.video_format)
         try:
             camera.start_recording(self.video_name + '.' + self.video_format)
         except:

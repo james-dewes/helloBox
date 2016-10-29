@@ -21,8 +21,16 @@ while(True){
   //see if the button has been pressed
   if($resultData['status'] == 'True'){
     shell_exec('/Documents/helloBox/Kiosk/record.py');
+    //send the file to the server
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_exec($ch);
+
+// close cURL resource, and free up system resources
+curl_close($ch);
   }
-sleep(5)
+sleep(5);
 }
 
 

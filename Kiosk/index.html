@@ -33,11 +33,14 @@
     <script src="page/jquery-3.1.1.min.js"></script>
     <script>
       $('document').ready(function(){
-        $.ajax({url: "/dataHandler/handler.php", success: function(result){
-       $("#player").prop('loop', false);
-       $("#player").get(0).pause();
-       $("#player").get(0).src="/dataHandler/"+result['id']+".h264"
-       $("#player").get(0).play();
+        $.ajax({url: "/dataHandler/handler.php",
+        data: { get_param: 'value' },
+        dataType: 'json',
+        success: function(result){
+         $("#player").prop('loop', false);
+         $("#player").get(0).pause();
+         $("#player").get(0).src="/dataHandler/"+result['id']+".h264"
+         $("#player").get(0).play();
 
    }});
 

@@ -48,13 +48,13 @@ if($resultData['status'] == 'True'){
   //close the return file
 
   //get return video and audio
-  if(!file_exists("{$fileId}.h264")){
+  if(!file_exists($fileId.".264")){
     $videoLocation = "wget http://192.168.226.240/video/{$fileId}.h264";
     $audioLocation = "wget http://192.168.226.240/audio/{$fileId}";
     exec($videoLocation);
     //exec($audioLocation);
   }
 
-  echo json_encode(array('id'=>$fileId));
+  echo "[" . json_encode(array('id'=>$fileId)) ."]";
   }
 ?>

@@ -18,8 +18,8 @@ if($resultData['status'] == 'True'){
   $fpath = '../example.h264';
   $fpath = gzCompressFile($fpath);
   //audio
-  //$apath = '../audio'
-  //$apath  = gzCompressFile(afpath);
+  $apath = '../audio.wav'
+  $apath  = gzCompressFile(afpath);
 
   //send the file(s) to the server
   $ch = curl_init();
@@ -27,7 +27,7 @@ if($resultData['status'] == 'True'){
   curl_setopt($ch, CURLOPT_POST, true);
   $postData = array('key'=>'summit123',
                 'vn'=>'video.h264',
-                'an'=>'audio');
+                'an'=>'audio.wav');
   curl_setopt($ch, CURLOPT_POSTFIELDS,$postData);
   curl_setopt($ch, CURLOPT_UPLOAD, 1);
   curl_setopt($ch, CURLOPT_TIMEOUT, 86400); // 1 Day Timeout
@@ -41,7 +41,7 @@ if($resultData['status'] == 'True'){
   //close the return file
 
   //get return video and audio
-  if(!file_exists("video_"$fileId.".gz")){
+  if(!file_exists("video_".$fileId.".gz")){
     $videoLocation = "wget http://192.168.226.240/video/video_{$fileId}.gz";
     $audioLocation = "wget http://192.168.226.240/audio/audio{$fileId}.gz";
     exec($videoLocation);

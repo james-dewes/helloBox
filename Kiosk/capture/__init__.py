@@ -5,7 +5,7 @@ except RuntimeError:
     print("Error importing picamera")
 
 try:
-    import os.path
+    import os
 except RuntimeError:
     print("Error importing os.path")
 
@@ -13,7 +13,7 @@ class capture:
     def __init__(self):
         self.video_name = 'example'
         self.audio_name = ''
-        self.audio_format = ''
+        self.audio_format = 'wav'
         self.video_format = 'h264'
         self.camera = picamera.PiCamera()
         self.save_path = ''
@@ -25,6 +25,7 @@ class capture:
     def start_capture(self):
         try:
             self.camera.start_recording(self.video_name + '.' + self.video_format)
+
         except:
             print("No capture fool!")
 

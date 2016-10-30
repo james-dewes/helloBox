@@ -1,6 +1,6 @@
 <?php
 function getLastIndex ($link){
-  $sql = "SELECT MAX(index)";
+  $sql = "SELECT MAX(`index`) FROM `root`;";
 
   mysql_select_db('helloBox');
   $retval = mysql_query( $sql, $link );

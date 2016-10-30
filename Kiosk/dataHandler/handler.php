@@ -1,5 +1,5 @@
 <?php
-require_once('../../gzip.php');
+require_once('../../gzp.php');
 // This is the data you want to pass to Python
 //not right now, but might need this later
 //$data = array('as', 'df', 'gh');

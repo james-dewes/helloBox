@@ -24,7 +24,10 @@ if($resultData['status'] == 'True'){
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
   curl_setopt($handle, CURLOPT_POST, true);
-  curl_setopt($handle, CURLOPT_POSTFIELDS, array('key'=>'summit123','vn'=>'video.h264','an'='audio'));
+  $postData = array('key'=>'summit123',
+                'vn'=>'video.h264',
+                'an'=>'audio');
+  curl_setopt($handle, CURLOPT_POSTFIELDS,$postData);
   //curl_setopt($ch, CURLOPT_HEADER, 0);
   curl_exec($ch);
 

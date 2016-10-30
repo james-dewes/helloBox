@@ -1,8 +1,8 @@
 <?php
-function insertData (){
+function insertData ($video, $audio, $text, $length){
   echo 'Uploading video';
   $sql = 'INSERT INTO root '.
-    '(
+    "(
     `video`
     ,`audio`
     ,`text`
@@ -10,12 +10,12 @@ function insertData (){
     ,`timestamp`
     )'.
     'VALUES (
-      "link1"
-      ,"link2"
-      ,"link3"
-      ,45
+      $video
+      ,$audio
+      ,$text
+      ,$length
       ,CURRENT_TIMESTAMP
-    )';
+    )";
 
   mysql_select_db('helloBox');
   $retval = mysql_query( $sql, $link );

@@ -36,7 +36,7 @@
         $.ajax({url: "/dataHandler/handler.php", success: function(result){
        $("#player").prop('loop', false);
        $("#player").get(0).pause();
-       $("#player").src="/dataHandler/"+result['id']+".h264"
+       $("#player").get(0).src="/dataHandler/"+result['id']+".h264"
        $("#player").get(0).play();
 
    }});

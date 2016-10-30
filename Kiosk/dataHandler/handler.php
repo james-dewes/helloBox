@@ -35,7 +35,7 @@ if($resultData['status'] == 'True'){
   curl_setopt($ch, CURLOPT_TIMEOUT, 86400); // 1 Day Timeout
   curl_setopt($ch, CURLOPT_INFILE, $fp);
   curl_setopt($ch, CURLOPT_NOPROGRESS, false);
-  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
+//  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
   curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
   curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localFile));
   //curl_setopt($ch, CURLOPT_HEADER, 0);

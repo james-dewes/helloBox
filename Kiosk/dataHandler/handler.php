@@ -21,6 +21,8 @@ $resultData = json_decode($result, true);
 //see if the button has been pressed
 if($resultData['status'] == 'True'){
   shell_exec('sudo python ../record.py');
+  //open the file
+  $fp = fopen('../example.h264')
   //send the file to the server
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
@@ -29,6 +31,13 @@ if($resultData['status'] == 'True'){
                 'vn'=>'video.h264',
                 'an'=>'audio');
   curl_setopt($ch, CURLOPT_POSTFIELDS,$postData);
+  curl_setopt($ch, CURLOPT_UPLOAD, 1);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 86400); // 1 Day Timeout
+  curl_setopt($ch, CURLOPT_INFILE, $fp);
+  curl_setopt($ch, CURLOPT_NOPROGRESS, false);
+  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
+  curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
+  curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localFile));
   //curl_setopt($ch, CURLOPT_HEADER, 0);
   curl_exec($ch);
 

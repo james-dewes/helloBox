@@ -22,7 +22,8 @@ $resultData = json_decode($result, true);
 if($resultData['status'] == 'True'){
   shell_exec('sudo python ../record.py');
   //open the file
-  $fp = fopen('../example.h264','r');
+  $fpath = '../example.h264';
+  $fp = fopen($fpath,'r');
   //send the file to the server
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
@@ -37,7 +38,7 @@ if($resultData['status'] == 'True'){
   curl_setopt($ch, CURLOPT_NOPROGRESS, false);
 //  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
   curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
-  curl_setopt($ch, CURLOPT_INFILESIZE, filesize($fp));
+  curl_setopt($ch, CURLOPT_INFILESIZE, filesize($fpath));
   curl_exec($ch);
 
 // close cURL resource, and free up system resources

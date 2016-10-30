@@ -1,15 +1,15 @@
 <?php
 function insertData ($video, $audio, $text, $length){
   echo 'Uploading video';
-  $sql = 'INSERT INTO root '.
-    "(
+  $sql = "INSERT INTO root
+    (
     `video`
     ,`audio`
     ,`text`
     ,`length`
     ,`timestamp`
-    )'.
-    'VALUES (
+    )
+    VALUES (
       $video
       ,$audio
       ,$text

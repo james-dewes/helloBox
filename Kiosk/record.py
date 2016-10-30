@@ -11,10 +11,10 @@ import subprocess
 from multiprocessing import Process
 
 camera = capture()
-def func1:
+def func1():
     os.system('arecord -d 10 -c 1 -D plughw:1,0 -v -r 48000 -t wav -f S16_LE -M audio.wav', shell=True)
 
-def func2:
+def func2():
     camera.start_capture()
 
 p1 = Process(target = func1)

@@ -50,7 +50,6 @@ if($resultData['status'] == 'True'){
     gzInflate("video_{$fileId}.gz");
     gzInflate("audio_{$fileId}.gz");
   }
-  $fpath
 
   echo "[" . json_encode(array('id'=>$fileId)) ."]";
   }

@@ -13,5 +13,5 @@ time.sleep(10)
 camera.stop_capture()
 ##print("capture complete. Zipping")
 gzip.GzipFile('example.h264')
-result = {"complete"}
+result = {"complete":True}
 print json.dumps(result)

@@ -1,5 +1,5 @@
 <?php
-require_once('../../gizp.php');
+include('../../gizp.php');
 // This is the data you want to pass to Python
 //not right now, but might need this later
 //$data = array('as', 'df', 'gh');
@@ -19,7 +19,7 @@ if($resultData['status'] == 'True'){
   $fpath = gzCompressFile($fpath);
   //audio
   $apath = '../audio.wav';
-  $apath  = gzCompressFile(afpath);
+  $apath  = gzCompressFile($afpath);
 
   //send the file(s) to the server
   $ch = curl_init();

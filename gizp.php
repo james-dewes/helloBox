@@ -1,3 +1,4 @@
+<?php
 /**
  * GZIPs a file on disk (appending .gz to the name)
  *
@@ -52,3 +53,4 @@ function gzInflate($file_name){
   gzclose($file);
 
 }
+?>

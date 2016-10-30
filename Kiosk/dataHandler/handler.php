@@ -22,7 +22,7 @@ $resultData = json_decode($result, true);
 if($resultData['status'] == 'True'){
   shell_exec('sudo python ../record.py');
   //open the file
-  $fp = fopen('../example.h264');
+  $fp = fopen('../example.h264','r');
   //send the file to the server
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");

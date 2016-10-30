@@ -5,6 +5,7 @@ except RuntimeError:
 
 import time
 import gzip
+import json
 
 camera = capture()
 camera.start_capture()

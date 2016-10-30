@@ -1,7 +1,7 @@
 <?php
-require_once ('../connector.php');
-require_once ('../insert.php');
-require_once('../lastIndex.php');
+require_once ('connector.php');
+require_once ('insert.php');
+require_once('lastIndex.php');
 
 connect();
 //GET DATA FROM THE GLOBAL POST Array
@@ -17,6 +17,9 @@ if(isset($_POST['key']) && $_POST['key']='summit123'){
     //get the number of the db index so we can use this as the file name
     $index = getLastIndex($link);
     move_uploaded_file($_FILES['uploaded_file'], '/path/to/destination/' . $index . '.zip');
-  } 
+
+    //work out the response file
+    getResponse($link,'hello');
+  }
 }
 disconnect();

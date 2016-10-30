@@ -24,8 +24,16 @@ if($resultData['status'] == 'True'){
   //open the file
   $fpath = '../example.h264';
   $fp = fopen($fpath,'r');
+
+  //setup to save the file sent back
+  $tmp_name = '../return.h264';
+  $returnFile = fopen($tmp_name, 'w');
+
   //send the file to the server
   $ch = curl_init();
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_FILE, $returnFile);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
   curl_setopt($ch, CURLOPT_POST, true);
   $postData = array('key'=>'summit123',
@@ -39,10 +47,12 @@ if($resultData['status'] == 'True'){
 //  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
   curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
   curl_setopt($ch, CURLOPT_INFILESIZE, filesize($fpath));
-  curl_exec($ch);
 
-// close cURL resource, and free up system resources
+  // close cURL resource, and free up system resources
 curl_close($ch);
+//close the return file
+fclose($returnFile);
+
   }
 sleep(5);
 

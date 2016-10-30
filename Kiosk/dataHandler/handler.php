@@ -13,7 +13,8 @@ if(isset($_GET['k']) && $_GET['k']=='12345'){
 //not right now, but might need this later
 //$data = array('as', 'df', 'gh');
 // Execute the python script with the JSON data
-$result = shell_exec('python ../triggers/button.py ' . escapeshellarg(json_encode($data)));
+$dataToSend = '';
+$result = shell_exec('python ../triggers/button.py ' . escapeshellarg(json_encode($dataToSend)));
 
 // Decode the result
 $resultData = json_decode($result, true);

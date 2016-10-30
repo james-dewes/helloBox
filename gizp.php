@@ -46,7 +46,7 @@ function gzInflateFile($file_name){
       // Read buffer-size bytes
       // Both fwrite and gzread and binary-safe
     //  fwrite($out_file, gzread($file, $buffer_size));
-  }
+//  }
 
   // Files are done, close files
   //fclose($out_file);

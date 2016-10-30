@@ -48,7 +48,7 @@ if($resultData['status'] == 'True'){
   //close the return file
 
   //get return video and audio
-  $videoLocation = "wegt http://192.168.226.240/videos/{$incomingFileName}.h264";
+  $videoLocation = "wget http://192.168.226.240/videos/{$incomingFileName}.h264";
   $audioLocation = "wget http://192.168.226.240/videos/{$incomingFileName}";
   exec($videoLocation);
   //exec($audioLocation);

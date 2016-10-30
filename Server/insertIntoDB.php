@@ -19,7 +19,7 @@ if(isset($_POST['key']) && $_POST['key']='summit123'){
     move_uploaded_file($_FILES['uploaded_file'], '/path/to/destination/' . $index . '.zip');
 
     //work out the response file
-    getResponse($link,'hello');
+    echo getResponse($link,'hello');
   }
 }
 disconnect();

@@ -27,13 +27,9 @@ if($resultData['status'] == 'True'){
 
   //setup to save the file sent back
   $tmp_name = '../return.h264';
-  $returnFile = fopen($tmp_name, 'w');
 
   //send the file to the server
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_FILE, $returnFile);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
   curl_setopt($ch, CURLOPT_POST, true);
   $postData = array('key'=>'summit123',
@@ -44,14 +40,18 @@ if($resultData['status'] == 'True'){
   curl_setopt($ch, CURLOPT_TIMEOUT, 86400); // 1 Day Timeout
   curl_setopt($ch, CURLOPT_INFILE, $fp);
   curl_setopt($ch, CURLOPT_NOPROGRESS, false);
-//  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
   curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
   curl_setopt($ch, CURLOPT_INFILESIZE, filesize($fpath));
-
+  $incomingFileName = curl_exec($ch);
   // close cURL resource, and free up system resources
-curl_close($ch);
-//close the return file
-fclose($returnFile);
+  curl_close($ch);
+  //close the return file
+
+  //get return video and audio
+  exec("wget http://192.168.226.240/videos/{$incomingFileName}.h264");
+  exec("wget http://192.168.226.240/videos/{$incomingFileName}");
+  echo json_encode(array('files'=>'ready'));
+
 
   }
 sleep(5);

@@ -16,7 +16,7 @@ if(isset($_POST['key']) && $_POST['key']='summit123'){
     insertData($link,$videoName, $audioName, 'hello', 30);
     //get the number of the db index so we can use this as the file name
     $index = getLastIndex($link);
-    move_uploaded_file($_FILES['uploaded_file'], '/path/to/destination/' . $index . '.zip');
+    move_uploaded_file($_FILES['uploaded_file'], '/path/to/destination/' . $index . '.gz');
 
     //work out the response file
     echo getResponse($link,'hello');

@@ -1,34 +1,27 @@
 <?php
-if(isset($_GET['k']) && $_GET['k']=='12345'){
-  switch($_GET['kommand']){
-    case 'record':
-
-      break;
-    case 'stop':
-      break;
-
-  }
-}
+require_once('../gzip.php');
 // This is the data you want to pass to Python
 //not right now, but might need this later
 //$data = array('as', 'df', 'gh');
 // Execute the python script with the JSON data
-$dataToSend = '';
-$result = shell_exec('python ../triggers/button.py ' . escapeshellarg(json_encode($dataToSend)));
+$dataToSend = array();
 
+$result = shell_exec('python ../triggers/button.py ' . escapeshellarg(json_encode($dataToSend)));
 // Decode the result
 $resultData = json_decode($result, true);
 //see if the button has been pressed
 if($resultData['status'] == 'True'){
+  //record video and audio
   shell_exec('sudo python ../record.py');
-  //open the file
+  //compress the data
+  //video
   $fpath = '../example.h264';
-  $fp = fopen($fpath,'r');
+  $fpath = gzCompressFile($fpath);
+  //audio
+  //$apath = '../audio'
+  //$apath  = gzCompressFile(afpath);
 
-  //setup to save the file sent back
-  $tmp_name = '../return.h264';
-
-  //send the file to the server
+  //send the file(s) to the server
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
   curl_setopt($ch, CURLOPT_POST, true);
@@ -48,12 +41,16 @@ if($resultData['status'] == 'True'){
   //close the return file
 
   //get return video and audio
-  if(!file_exists($fileId.".264")){
-    $videoLocation = "wget http://192.168.226.240/video/{$fileId}.h264";
-    $audioLocation = "wget http://192.168.226.240/audio/{$fileId}";
+  if(!file_exists("video_"$fileId.".gz")){
+    $videoLocation = "wget http://192.168.226.240/video/video_{$fileId}.gz";
+    $audioLocation = "wget http://192.168.226.240/audio/audio{$fileId}.gz";
     exec($videoLocation);
     //exec($audioLocation);
+    //extract the video and audio to play
+    gzInflate("video_{$fileId}.gz");
+    gzInflate("audio_{$fileId}.gz");
   }
+  $fpath
 
   echo "[" . json_encode(array('id'=>$fileId)) ."]";
   }

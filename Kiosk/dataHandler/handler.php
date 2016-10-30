@@ -48,8 +48,8 @@ if($resultData['status'] == 'True'){
   //close the return file
 
   //get return video and audio
-  $videoLocation = "wget http://192.168.226.240/videos/{$incomingFileName}.h264";
-  $audioLocation = "wget http://192.168.226.240/videos/{$incomingFileName}";
+  $videoLocation = "wget http://192.168.226.240/video/{$incomingFileName}.h264";
+  $audioLocation = "wget http://192.168.226.240/audio/{$incomingFileName}";
   exec($videoLocation);
   //exec($audioLocation);
   echo json_encode(array('files'=>'ready'));

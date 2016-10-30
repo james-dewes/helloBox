@@ -10,7 +10,7 @@ import os
 import subprocess
 
 camera = capture()
-subprocess.call('arecord -d 10 -c 1 -D plughw:1,0 -v -r 48000 -t wav -f S16_LE -M audio.wav')
+subprocess.call('arecord -d 10 -c 1 -D plughw:1,0 -v -r 48000 -t wav -f S16_LE -M audio.wav', shell=True)
 camera.start_capture()
 time.sleep(10)
 camera.stop_capture()

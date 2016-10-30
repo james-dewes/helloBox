@@ -47,8 +47,8 @@ if($resultData['status'] == 'True'){
     exec($videoLocation);
     //exec($audioLocation);
     //extract the video and audio to play
-    gzInflate("video_{$fileId}.gz");
-    gzInflate("audio_{$fileId}.gz");
+    gzInflateFile("video_{$fileId}.gz");
+    gzInflateFile("audio_{$fileId}.gz");
   }
 
   echo "[" . json_encode(array('id'=>$fileId)) ."]";

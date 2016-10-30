@@ -42,17 +42,17 @@ if($resultData['status'] == 'True'){
   curl_setopt($ch, CURLOPT_NOPROGRESS, false);
   curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
   curl_setopt($ch, CURLOPT_INFILESIZE, filesize($fpath));
-  $incomingFileName = curl_exec($ch);
+  $fileId = curl_exec($ch);
   // close cURL resource, and free up system resources
   curl_close($ch);
   //close the return file
 
   //get return video and audio
-  $videoLocation = "wget http://192.168.226.240/video/{$incomingFileName}.h264";
-  $audioLocation = "wget http://192.168.226.240/audio/{$incomingFileName}";
+  $videoLocation = "wget http://192.168.226.240/video/{$fileId}.h264";
+  $audioLocation = "wget http://192.168.226.240/audio/{$fileId}";
   exec($videoLocation);
   //exec($audioLocation);
-  echo json_encode(array('files'=>'ready'));
+  echo json_encode(array('id'=>$fileId));
 
 
   }

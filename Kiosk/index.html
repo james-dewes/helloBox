@@ -33,17 +33,20 @@
     <script src="page/jquery-3.1.1.min.js"></script>
     <script>
       $('document').ready(function(){
-  //      $.ajax({url: "/dataHandler/handler.php", success: function(result){
-    //   $("#div1").html(result);
-  // }});
+        $.ajax({url: "/dataHandler/handler.php", success: function(result){
+       $("#player").prop('loop', false);
+       $("#player").get(0).pause();
+       $("#player").src="/dataHandler/"+result['id']+".h264"
+       $("#player").get(0).play();
 
-});
+   }});
+
+      })
     </script>
   </head>
   <body>
     <div class="content">
         <video id="player" src="page/loop.h264" autoplay loop></video>
     </div>
-    <div id="div1"></div>
   </body>
 </html>

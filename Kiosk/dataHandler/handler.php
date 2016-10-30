@@ -37,8 +37,7 @@ if($resultData['status'] == 'True'){
   curl_setopt($ch, CURLOPT_NOPROGRESS, false);
 //  curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, 'CURL_callback');
   curl_setopt($ch, CURLOPT_BUFFERSIZE, 128);
-  curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localFile));
-  //curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch, CURLOPT_INFILESIZE, filesize($fp));
   curl_exec($ch);
 
 // close cURL resource, and free up system resources

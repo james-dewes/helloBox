@@ -18,7 +18,7 @@ if($resultData['status'] == 'True'){
   $fpath = '../example.h264';
   $fpath = gzCompressFile($fpath);
   //audio
-  $apath = '../audio.wav'
+  $apath = '../audio.wav';
   $apath  = gzCompressFile(afpath);
 
   //send the file(s) to the server

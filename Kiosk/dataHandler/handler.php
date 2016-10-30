@@ -16,10 +16,10 @@ if($resultData['status'] == 'True'){
   //compress the data
   //video
   $fpath = '../example.h264';
-  $fpath = gzCompressFile($fpath);
+  //$fpath = gzCompressFile($fpath);
   //audio
   $apath = '../audio.wav';
-  $apath  = gzCompressFile($afpath);
+  //$apath  = gzCompressFile($afpath);
 
   //send the file(s) to the server
   $ch = curl_init();

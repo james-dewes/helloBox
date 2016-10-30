@@ -30,10 +30,11 @@
       left: 0;
     }
     </style>
-    <script src="page/jquery-3.1.1.min.js"></script>
-    <script>
+    <script src="page/jquery-3.1.1.min.js" async></script>
+    <script async>
       $('document').ready(function(){
         $.ajax({url: "/dataHandler/handler.php",
+               async:true,
         data: { get_param: 'value' },
         dataType: 'json',
         success: function(result){

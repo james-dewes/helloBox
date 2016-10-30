@@ -41,14 +41,14 @@ if($resultData['status'] == 'True'){
   //close the return file
 
   //get return video and audio
-  if(!file_exists("video_".$fileId.".gz")){
-    $videoLocation = "wget http://192.168.226.240/video/video_{$fileId}.gz";
-    $audioLocation = "wget http://192.168.226.240/audio/audio{$fileId}.gz";
+  if(!file_exists("video_".$fileId.".h264")){
+    $videoLocation = "wget http://192.168.226.240/video/video_{$fileId}.h264";
+    $audioLocation = "wget http://192.168.226.240/audio/audio{$fileId}.wav";
     exec($videoLocation);
     //exec($audioLocation);
     //extract the video and audio to play
-    gzInflateFile("video_{$fileId}.gz");
-    gzInflateFile("audio_{$fileId}.gz");
+    //gzInflateFile("video_{$fileId}.gz");
+    //gzInflateFile("audio_{$fileId}.gz");
   }
 
   echo "[" . json_encode(array('id'=>$fileId)) ."]";

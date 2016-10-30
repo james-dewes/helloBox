@@ -1,5 +1,5 @@
 <?php
-if($_GET['k']=='12345'){
+if(isset($_GET['k']) && $_GET['k']=='12345'){
   switch($_GET['kommand']){
     case 'record':
 
@@ -19,7 +19,7 @@ $result = shell_exec('python ../triggers/button.py ' . escapeshellarg(json_encod
 $resultData = json_decode($result, true);
 //see if the button has been pressed
 if($resultData['status'] == 'True'){
-  shell_exec('sudo ../record.py');
+  shell_exec('sudo python ../record.py');
   //send the file to the server
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");

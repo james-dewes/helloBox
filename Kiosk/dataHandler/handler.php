@@ -4,6 +4,7 @@ include('../../gizp.php');
 //not right now, but might need this later
 //$data = array('as', 'df', 'gh');
 // Execute the python script with the JSON data
+
 $dataToSend = array();
 
 $result = shell_exec('python ../triggers/button.py ' . escapeshellarg(json_encode($dataToSend)));
@@ -15,6 +16,7 @@ if($resultData['status'] == 'True'){
   shell_exec('sudo python ../record.py');
   //compress the data
   //video
+  sleep(12);
   $fpath = '../example.h264';
   //$fpath = gzCompressFile($fpath);
   //audio

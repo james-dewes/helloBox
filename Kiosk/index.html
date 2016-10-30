@@ -33,17 +33,17 @@
     <script src="page/jquery-3.1.1.min.js" async></script>
     <script async>
       $('document').ready(function(){
-        $.ajax({url: "/dataHandler/handler.php",
+        $.ajax({
+               url: "/dataHandler/handler.php",
                async:true,
-        data: { get_param: 'value' },
-        dataType: 'json',
-        success: function(result){
-         $("#player").prop('loop', false);
-         $("#player").get(0).pause();
-         $("#player").get(0).src="/dataHandler/"+result['id']+".h264"
-         $("#player").get(0).play();
-
-   }});
+               data: { get_param: 'value' },
+               dataType: 'json',
+               success: function(result){
+                 $("#player").prop('loop', false);
+                 $("#player").get(0).pause();
+                 $("#player").get(0).src="/dataHandler/"+result['id']+".h264"
+                 $("#player").get(0).play();
+         }});
 
       })
     </script>

@@ -20,7 +20,7 @@ if($resultData['status'] == 'True'){
   //audio
   $apath = '../audio.wav';
   //$apath  = gzCompressFile($afpath);
-
+  $fp = fopen('../example.h264','r');
   //send the file(s) to the server
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "http://192.168.226.240/insertIntoDB.php");
